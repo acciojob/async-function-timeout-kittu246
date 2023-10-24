@@ -6,6 +6,7 @@ let delay = document.getElementById("delay");
 let display = document.getElementById("output");
 
 
+
 async function createPromise (text,delay){
 
    
@@ -13,7 +14,7 @@ async function createPromise (text,delay){
 
          setTimeout(() => {
             resolve(text)
-         },delay)
+         },parseInt(delay))
       })
    
 
@@ -23,7 +24,7 @@ async function createPromise (text,delay){
 async function displayMessage(){
    try{
 
-      const res = await createPromise(text.innerText,delay.innerText);
+      const res = await createPromise(text.value,delay.value);
 
       display.innerText = res ;
 
