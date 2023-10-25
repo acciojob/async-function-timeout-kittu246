@@ -5,28 +5,39 @@ let delay = document.getElementById("delay");
 
 let display = document.getElementById("output");
 
+let btn = document.getElementById("btn");
+
+btn.addEventListener('click', displayMessage);
 
 
-async function createPromise (text,delay){
+
+// async function createPromise (text,delay){
 
    
-      return new Promise ((resolve) => {
+//       return new Promise ((resolve) => {
 
-         setTimeout(() => {
-            resolve(text)
-         },parseInt(delay))
-      })
+//          setTimeout(() => {
+//             resolve(text)
+//          },parseInt(delay))
+//       })
    
 
 
-}
+// }
+
+
 
 async function displayMessage(){
    try{
 
-      const res = await createPromise(text.value,delay.value);
+      display.innerText = await new Promise((resolve,reject) =>{
 
-      display.innerText = res ;
+		  setTimeout(() =>{
+			  resolve(text.value)
+		  },parseInt(delay.value))
+	  })
+
+       
 
    }
 
